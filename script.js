@@ -25,17 +25,33 @@ var sixPm = $("#hour-18");
 // Display day of the week and time
 $("#currentDay").text(dayWeek);
 
-// playing with style
+// this function checks the time and assighns background color
+function timeCheck() {
+console.log(currentTime);
+};
 
-nineAm.addClass("future");
-sixPm.addClass("past");
+$(".time-block").each(function () {
+  var blockHour = parseInt($(this).attr("id").split("hour-")[1]);
+  
+  if (blockHour < currentTime) {
+    $(this).addClass("past");
+    $(this).removeClass("future");
+    $(this).removeClass("present");
+}
+else if (blockHour == currentTime) {
+  $(this).removeClass("past");
+  $(this).addClass("present");
+  $(this).removeClass("future");
+  }
+  else {
+    $(this).removeClass("present");
+    $(this).removeClass("past");
+    $(this).addClass("future");
+}
 
-//Checking time to determine present, past, or future
-
-
-$('.time-block').each(function() {
- $(this).find('.text-area').val(availableHours[$(this).attr('data-time')].value);
 });
+
+
 
 
 
@@ -59,11 +75,15 @@ $("#hour-18 .description").val(localStorage.getItem("6PM"));
 };
 
 
+initPage();
 
+// button to clear the local memory
 
-
-
-
+$(".clrBtn").on("click", function(){
+  //localStorage.clear();
+  console.log(this);
+  initPage()
+}); 
 
 
 
@@ -72,9 +92,9 @@ $("#hour-18 .description").val(localStorage.getItem("6PM"));
   $(".saveBtn").on("click", function(){
  // console.log(test);
   userInput = $(this).siblings(".description").val().trim();
-  //console.log(userInput);
+  console.log(userInput);
   textArea = $(this).siblings().text().trim();
-  console.log(textArea);
+
 
   localStorage.setItem(textArea, JSON.stringify(userInput));
   })
