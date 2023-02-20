@@ -31,6 +31,8 @@ Done: listener for click events on the save button. This code
 use the id in the containing time-block as a key to save the user input in
 local storage. Using `this` reference in the click listener
 function DOM traversal is used to get the "hour-x" id of the
+
+
 time-block containing the button that was clicked
 
 DONE: Added code to apply the past, present, or future class to each time
@@ -44,3 +46,4 @@ the values of the corresponding textarea elements. The id
 attribute of each time-block is used to do this.
 
 DONE: Code added to display the current date in the header of the page.
+![Capture3](https://user-images.githubusercontent.com/122843028/220004920-55049327-3b05-41ac-835b-f84f63b721bf.PNG)
