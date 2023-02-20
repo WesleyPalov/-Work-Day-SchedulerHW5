@@ -26,7 +26,7 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 
-What was done:
+WHAT WAS DONE:
 Done: listener for click events on the save button. This code
 use the id in the containing time-block as a key to save the user input in
 local storage. Using `this` reference in the click listener

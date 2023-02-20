@@ -2,24 +2,16 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 // fun
-console.log($());
+$(function () {
+
 var today = dayjs();
 var dayWeek =  today.format('dddd, HH:mm');
 
 var currentTime = today.format('HH');
 
 
-var saveBtn = document.querySelector(".container-lg");
-var nineAm = $("#hour-9");
-var tenAm = $("#hour-10");
-var elevenAm = $("#hour-11");
-var twelvePm = $("#hour-12");
-var onePm = $("#hour-13");
-var twoPm = $("#hour-14");
-var threePm = $("#hour-15");
-var fourPm = $("#hour-16");
-var fivePm = $("#hour-17");
-var sixPm = $("#hour-18");
+//var saveBtn = document.querySelector(".container-lg");
+
 
 
 // Display day of the week and time
@@ -81,7 +73,7 @@ $(".clrBtn").on("click", function(){
   $(".saveBtn").on("click", function(){
  // console.log(test);
   userInput = $(this).siblings(".description").val().trim();
-  console.log(this);
+  
   textArea = $(this).siblings().text().trim();
 
 
@@ -90,7 +82,7 @@ $(".clrBtn").on("click", function(){
 
 
 
-$(function () {
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
