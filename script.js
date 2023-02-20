@@ -7,7 +7,7 @@ var today = dayjs();
 var dayWeek =  today.format('dddd, HH:mm');
 
 var currentTime = today.format('HH');
-var test = document.getElementById("hour-12"); 
+
 
 var saveBtn = document.querySelector(".container-lg");
 var nineAm = $("#hour-9");
@@ -26,9 +26,7 @@ var sixPm = $("#hour-18");
 $("#currentDay").text(dayWeek);
 
 // this function checks the time and assighns background color
-function timeCheck() {
-console.log(currentTime);
-};
+
 
 $(".time-block").each(function () {
   var blockHour = parseInt($(this).attr("id").split("hour-")[1]);
@@ -51,21 +49,12 @@ else if (blockHour == currentTime) {
 
 });
 
-
-
-
-
-
-
-
-
-
 // loads saved data from local storege 
 function initPage() {
 $("#hour-9 .description").val(localStorage.getItem("9AM"));
 $("#hour-10 .description").val(localStorage.getItem("10AM"));
 $("#hour-11 .description").val(localStorage.getItem("11AM"));
-$("#hour-12 .description").val(localStorage.getItem("12pm"));
+$("#hour-12 .description").val(localStorage.getItem("12PM"));
 $("#hour-13 .description").val(localStorage.getItem("1PM"));
 $("#hour-14 .description").val(localStorage.getItem("2PM"));
 $("#hour-15 .description").val(localStorage.getItem("3PM"));
@@ -80,9 +69,9 @@ initPage();
 // button to clear the local memory
 
 $(".clrBtn").on("click", function(){
-  //localStorage.clear();
-  console.log(this);
-  initPage()
+  localStorage.clear();
+  
+  initPage();
 }); 
 
 
@@ -92,7 +81,7 @@ $(".clrBtn").on("click", function(){
   $(".saveBtn").on("click", function(){
  // console.log(test);
   userInput = $(this).siblings(".description").val().trim();
-  console.log(userInput);
+  console.log(this);
   textArea = $(this).siblings().text().trim();
 
 
